@@ -5,7 +5,7 @@ on:
     - main
 jobs:
   test:
-    name: Testing Swift Package and iOS app
+    name: Testing iOS app
     runs-on: macOS-latest
     steps:
       - name: Checkout repository
@@ -13,4 +13,4 @@ jobs:
       - name: Force XCode 13.2.1
         run: sudo xcode-select -switch /Applications/Xcode.app
       - name: Testing iOS app
-        run: exec ./.github/scripts/test_app.sh
+        run: sudo exec ./.github/scripts/test_app.sh
