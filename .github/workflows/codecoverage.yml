@@ -1,18 +1,16 @@
-name: Code Coverage Demo
-
+name: Code Coverage demo
 on:
-  push:
-    branches:
-main
   pull_request:
     branches:
-main
-
+    - main
 jobs:
-  build:
+  test:
+    name: Testing Swift Package and iOS app
     runs-on: macOS-latest
     steps:
-      - name: Test
+      - name: Checkout repository
         uses: actions/checkout@v1
-      - name: Build and Test
-        run:  xcodebuild test -project CodeCoverage.xcodeproj -scheme CodeCoverage -destination 'platform=iOS Simulator,name=iPhone Pro Max,OS=15.2' build test
+      - name: Force XCode 13.2.1
+        run: sudo xcode-select -switch /Applications/Xcode.app
+      - name: Testing iOS app
+        run: exec ./.github/scripts/test_app.sh
