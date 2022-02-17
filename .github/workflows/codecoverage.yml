@@ -16,7 +16,7 @@ jobs:
 #        run: exec ./.github/scripts/test_app.sh
 #      - name: Run tests with Coverage
 #        run: swift test --enable-code-coverage
-        - name: Test coverage
-          uses: maxep/spm-lcov-action@0.3.0
-          with:
-              output-file: ./coverage/lcov.info
+      - name: Test coverage
+        uses: maxep/spm-lcov-action@0.3.0
+        with:
+          output-file: ./coverage/lcov.info
